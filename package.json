@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
+    "@nestjs/config": "^0.5.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/jwt": "^7.2.0",
     "@nestjs/passport": "^7.1.0",
@@ -29,7 +30,9 @@
     "bcrypt": "^5.0.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
+    "helmet": "^4.2.0",
     "lodash": "^4.17.20",
+    "mime-types": "^2.1.27",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",

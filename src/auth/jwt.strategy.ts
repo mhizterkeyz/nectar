@@ -1,14 +1,14 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { jwtContants } from 'src/auth/schema/constants';
+import configuration from 'src/config/configuration';
 import { User, UserService } from 'src/user';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly userService: UserService) {
     super({
-      secretOrKey: jwtContants.secret,
+      secretOrKey: 'va;lue', //configuration().jwtSecret,
       ignoreExpiration: false,
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     });

@@ -4,7 +4,7 @@ import { AuthController } from './auth.controller';
 import { UserModule } from 'src/user/user.module';
 import { LocalStrategy } from './local.strategy';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtContants } from 'src/auth/schema/constants';
+import configuration from 'src/config/configuration';
 import { JwtStrategy } from './jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
 
@@ -13,7 +13,7 @@ import { PassportModule } from '@nestjs/passport';
     UserModule,
     PassportModule,
     JwtModule.register({
-      secret: jwtContants.secret,
+      secret: 'va;lue', //configuration().jwtSecret,
       signOptions: { expiresIn: '1d' },
     }),
   ],
