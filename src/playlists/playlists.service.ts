@@ -129,11 +129,10 @@ export class PlaylistsService {
     const playlist = this.playLists[id];
     if (!playlist || playlist.isDeleted || playlist.author !== user.id)
       throw new NotFoundException('Playlist not found');
-    const music = findIndex(this.musics[id], { music: musicID });
-    if (!music) throw new NotFoundException('Music not found');
+    const music = findIndex(this.musics[id], { id: musicID });
+    if (music === -1) throw new NotFoundException('Music not found');
 
-    const muse = { ...this.musics[id][music] };
-    delete this.musics[id][music];
+    const [muse] = this.musics[id].splice(music, 1);
 
     return muse;
   }
